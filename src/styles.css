@@ -1,1 +1,164 @@
 /* You can add global styles to this file, and also import other style files */
+:root{
+    --primary: #2fbf71;
+    --primary-010: #21804d;
+    --white: #ffffff;
+    --grey: #9b9ba0;
+    --black: #10101a;
+    --black-010: #2a2a30;
+    --red: #c90025;
+    --red-010: #a3001e;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+html, body{
+    height: 100%;
+}
+
+body{
+    margin: 0;
+    background: var(--black);
+    font-family: Roboto, "Helvetica neue";
+}
+
+h1{
+    font-size: 22px;
+}
+
+h2, h3{
+    font-size: 14px;
+}
+
+h1, h2, h3, a{
+    color: var(--white);
+    text-decoration: none;
+}
+
+p{
+    color: var(--grey);
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.container{
+    width: 350px;
+    padding: 0 20px;
+    position: relative;
+}
+
+@media (max-width: 750px){
+    .container{
+        width: 100%;
+    }
+}
+
+.btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .5s;
+    border: none;
+    cursor: pointer;
+
+    &.btn-primary,
+    &.btn-primary-circulo{
+        color: var(--black-010);
+        background: var(--primary);
+
+        &:hover{
+            background: var(--primary-010);
+            color: var(--white);
+        }
+    }
+
+    &.btn-danger,
+    &.btn-danger-circulo{
+        color: var(--white);
+        background: var(--red);
+
+        &:hover{
+            background: var(--red-010);
+        }
+    }
+
+    &.btn-danger,
+    &.btn-primary{
+        font-size: 16px;
+        border-radius: 50px;
+        padding: 10px 20px;
+    }
+
+    &.btn-danger-circulo,
+    &.btn-primary-circulo{
+        width: 30px;
+        height: 30px;
+        border-radius: 50px;
+
+        &::after{
+            top: 1px;
+            position: relative;
+        }
+    }
+
+    &.btn-danger-circulo{
+        &::after{
+            content: 'X';
+        }
+    }
+    &.btn-primary-circulo{
+        &::after{
+            content: '+';
+        }
+    }
+}
+
+.input-label-text{
+    height: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+    border-radius: 50px;
+    background: var(--black-010);
+    margin-bottom: 20px;
+    padding: 5px;
+
+    input[type="text"]{
+        width: 85%;
+        border: none;
+        background: none;
+        font-size: 14px;
+        color: var(--white);
+        outline: 0;
+        margin-left: 10px;
+    }
+
+    input[type="checkbox"]{
+        appearance: none;
+        background: var(--white);
+        width: 20px;
+        height: 20px;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+
+        &:checked{
+            background: var(--primary);
+            border: none;
+        }
+    }
+
+    input[type="checkbox"] + input[type="text"]{
+        margin: 0;
+    }
+}
